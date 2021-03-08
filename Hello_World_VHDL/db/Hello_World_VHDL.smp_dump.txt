@@ -1,0 +1,6 @@
+
+State Machine - |Hello_World_VHDL|\HW_Send:State
+Name \HW_Send:State.Delay \HW_Send:State.Send \HW_Send:State.Char_Select 
+\HW_Send:State.Char_Select 0 0 0 
+\HW_Send:State.Send 0 1 1 
+\HW_Send:State.Delay 1 0 1 

@@ -1,0 +1,53 @@
+Main (
+    UART_TX  : OUT STD_LOGIC := '1';
+) {
+    TYPE States is (Char_Select, Send, Delay);
+    
+    Process () {
+        SIGNAL MyString        : STD_LOGIC_VECTOR(103 downto 0) := x"48656c6c6f20576f726c64210a";
+        
+        VARIABLE charCounter   : NATURAL range 0 to (MyString'LENGTH)/8 := (MyString'LENGTH)/8;
+        VARIABLE State         : States := Char_Select;
+        VARIABLE Delay_Counter : NATURAL range 0 to 12000000 := 0;
+        Case(State) {
+            When(Char_Select) {
+                UART_TX_Data   <= MyString(charCounter*8-1 downto charCounter*8-8);
+                UART_TX_Enable <= '1';
+                If(UART_TX_Busy = '1') {
+                    State      := Send;
+                }
+            } When(Send) {
+                UART_TX_Enable <= '0';
+                If(UART_TX_Busy = '0') {
+                    If(charCounter > 1) {
+                        charCounter := charCounter - 1;
+                        State       := Char_Select;
+                    } Else {
+                        charCounter := (MyString'LENGTH)/8;
+                        State       := Delay;
+                    }
+                }
+            } When(Delay) {
+                If(Delay_Counter < 12000000) {
+                    Delay_Counter := Delay_Counter + 1;
+                } Else {
+                    Delay_Counter := 0;
+                    State         := Char_Select;
+                }
+            }
+        }
+    }
+    
+    SIGNAL UART_TX_Enable     : STD_LOGIC := '0';
+    SIGNAL UART_TX_Busy       : STD_LOGIC := '0';
+    SIGNAL UART_TX_Data       : STD_LOGIC_VECTOR (8-1 DOWNTO 0) := (others => '0');
+    NewComponent UART_Interface (
+        CLK_Frequency => 12000000,
+        Baud_Rate     => 19200,
+
+        TX            => UART_TX,
+        TX_Enable     => UART_TX_Enable,
+        TX_Busy       => UART_TX_Busy,
+        TX_Data       => UART_TX_Data,
+    );
+}
