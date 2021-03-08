@@ -18,13 +18,14 @@
 #
 # Quartus Prime
 # Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-# Date created = 10:50:32  January 12, 2021
+# Date created = 14:48:18  March 08, 2021
 #
 # -------------------------------------------------------------------------- #
 
 QUARTUS_VERSION = "18.1"
-DATE = "10:50:32  January 12, 2021"
+DATE = "14:48:18  March 08, 2021"
 
 # Revisions
 
+PROJECT_REVISION = "Hello_World_VHDP"
 PROJECT_REVISION = "If_Tutorial"

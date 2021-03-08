@@ -2,6 +2,15 @@
 <ProjectRoot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Header>Hello_World_VHDP</Header>
   <Items xsi:type="ProjectFolder">
+    <Header>Generated</Header>
+    <Items xsi:type="ProjectFileVHDL">
+      <Header>Hello_World_VHDP.vhd</Header>
+    </Items>
+    <Items xsi:type="ProjectFileVHDL">
+      <Header>UART_Interface.vhd</Header>
+    </Items>
+  </Items>
+  <Items xsi:type="ProjectFolder">
     <Header>Libraries</Header>
     <Items xsi:type="ProjectFileVHDP">
       <Header>UART.vhdp</Header>

@@ -7,7 +7,7 @@ Main
     {
         Thread
         {
-            SIGNAL MyString : STD_LOGIC_VECTOR(95 downto 0) := s"Hello World!";
+            SIGNAL MyString : STD_LOGIC_VECTOR(103 downto 0) := s"Hello World!\n";
             For(VARIABLE charCounter : NATURAL range 0 to (MyString'LENGTH)/8 := (MyString'LENGTH)/8; charCounter > 0 ; charCounter := charCounter - 1)
             {
                 UART_TX_Data   <= MyString(charCounter*8-1 downto charCounter*8-8);
@@ -16,6 +16,7 @@ Main
                 UART_TX_Enable <= '0';
                 While(UART_TX_Busy = '1'){}
             }
+            Wait(1000ms);
         }
     }
     
