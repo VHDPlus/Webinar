@@ -1,0 +1,35 @@
+Main
+(
+    UART_TX  : OUT STD_LOGIC := '1';
+)
+{
+    Process ()
+    {
+        Thread
+        {
+            SIGNAL MyString : STD_LOGIC_VECTOR(95 downto 0) := s"Hello World!";
+            For(VARIABLE charCounter : NATURAL range 0 to (MyString'LENGTH)/8 := (MyString'LENGTH)/8; charCounter > 0 ; charCounter := charCounter - 1)
+            {
+                UART_TX_Data   <= MyString(charCounter*8-1 downto charCounter*8-8);
+                UART_TX_Enable <= '1';
+                While(UART_TX_Busy = '0'){}
+                UART_TX_Enable <= '0';
+                While(UART_TX_Busy = '1'){}
+            }
+        }
+    }
+    
+    SIGNAL UART_TX_Enable     : STD_LOGIC := '0';
+    SIGNAL UART_TX_Busy       : STD_LOGIC := '0';
+    SIGNAL UART_TX_Data       : STD_LOGIC_VECTOR (8-1 DOWNTO 0) := (others => '0');
+    NewComponent UART_Interface
+    (
+        CLK_Frequency => 12000000,
+        Baud_Rate     => 19200,
+
+        TX            => UART_TX,
+        TX_Enable     => UART_TX_Enable,
+        TX_Busy       => UART_TX_Busy,
+        TX_Data       => UART_TX_Data,
+    );
+}
