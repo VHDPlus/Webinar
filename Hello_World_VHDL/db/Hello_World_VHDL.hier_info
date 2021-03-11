@@ -38,7 +38,7 @@ CLK => \HW_Send:charCounter[1].CLK
 CLK => \HW_Send:charCounter[2].CLK
 CLK => \HW_Send:charCounter[3].CLK
 CLK => \HW_Send:State~1.DATAIN
-UART_TX <= UART_Interface:UART_0.TX
+UART_TX << UART_Interface:UART_0.TX
 
 
 |Hello_World_VHDL|UART_Interface:UART_0

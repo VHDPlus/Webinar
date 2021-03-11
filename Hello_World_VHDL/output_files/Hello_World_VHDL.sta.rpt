@@ -1,5 +1,5 @@
 Timing Analyzer report for Hello_World_VHDL
-Mon Mar 08 15:46:15 2021
+Thu Mar 11 16:27:01 2021
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -89,13 +89,13 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 8           ;
 ;                            ;             ;
-; Average used               ; 1.07        ;
+; Average used               ; 1.06        ;
 ; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   1.1%      ;
-;     Processors 3-8         ;   1.0%      ;
+;     Processor 2            ;   0.8%      ;
+;     Processors 3-8         ;   0.8%      ;
 +----------------------------+-------------+
 
 
@@ -409,7 +409,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Mon Mar 08 15:46:11 2021
+    Info: Processing started: Thu Mar 11 16:26:57 2021
 Info: Command: quartus_sta Hello_World_VHDL -c Hello_World_VHDL
 Info: qsta_default_script.tcl version: #1
 Info (20032): Parallel compilation is enabled and will use up to 8 processors
@@ -479,8 +479,8 @@ Info (332146): Worst-case minimum pulse width slack is -3.000
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4822 megabytes
-    Info: Processing ended: Mon Mar 08 15:46:15 2021
+    Info: Peak virtual memory: 4818 megabytes
+    Info: Processing ended: Thu Mar 11 16:27:01 2021
     Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:03
 

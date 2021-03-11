@@ -1,5 +1,5 @@
 Fitter report for Hello_World_VHDL
-Mon Mar 08 15:46:03 2021
+Thu Mar 11 16:26:50 2021
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Mon Mar 08 15:46:03 2021       ;
+; Fitter Status                      ; Successful - Thu Mar 11 16:26:50 2021       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; Hello_World_VHDL                            ;
 ; Top-level Entity Name              ; Hello_World_VHDL                            ;
@@ -154,13 +154,13 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 8           ;
 ;                            ;             ;
-; Average used               ; 1.06        ;
+; Average used               ; 1.05        ;
 ; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.9%      ;
-;     Processors 3-8         ;   0.8%      ;
+;     Processor 2            ;   0.8%      ;
+;     Processors 3-8         ;   0.7%      ;
 +----------------------------+-------------+
 
 
@@ -202,7 +202,7 @@ refer to the applicable agreement for further details.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in C:/Users/LeonB/Documents/VHDPlus/Projects/Hello_World_VHDL/output_files/Hello_World_VHDL.pin.
+The pin-out file can be found in C:/Users/LeonB/Documents/GitHub/Webinar/Hello_World_VHDL/output_files/Hello_World_VHDL.pin.
 
 
 +--------------------------------------------------------------------+
@@ -911,7 +911,7 @@ Info (332144): No user constrained base clocks found in the design
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332154): The derive_clock_uncertainty command did not apply clock uncertainty to any clock-to-clock transfers.
 Info (332130): Timing requirements not specified -- quality metrics such as performance may be sacrificed to reduce compilation time.
-Info (176353): Automatically promoted node CLK~input (placed in PIN H6 (CLK0p, DIFFIO_RX_L18p, DIFFOUT_L18p, High_Speed)) File: C:/Users/LeonB/Documents/VHDPlus/Projects/Hello_World_VHDL/Hello_World_VHDL.vhd Line: 7
+Info (176353): Automatically promoted node CLK~input (placed in PIN H6 (CLK0p, DIFFIO_RX_L18p, DIFFOUT_L18p, High_Speed)) File: C:/Users/LeonB/Documents/GitHub/Webinar/Hello_World_VHDL/Hello_World_VHDL.vhd Line: 7
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G4
 Info (176233): Starting register packing
 Info (176235): Finished register packing
@@ -928,24 +928,24 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
     Info (170196): Router estimated peak interconnect usage is 0% of the available device resources in the region that extends from location X10_Y0 to location X20_Y12
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
-Info (11888): Total time spent on timing analysis during the Fitter is 0.32 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
+Info (11888): Total time spent on timing analysis during the Fitter is 0.23 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:02
-Info (144001): Generated suppressed messages file C:/Users/LeonB/Documents/VHDPlus/Projects/Hello_World_VHDL/output_files/Hello_World_VHDL.fit.smsg
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
+Info (144001): Generated suppressed messages file C:/Users/LeonB/Documents/GitHub/Webinar/Hello_World_VHDL/output_files/Hello_World_VHDL.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 5812 megabytes
-    Info: Processing ended: Mon Mar 08 15:46:04 2021
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:10
+    Info: Peak virtual memory: 5811 megabytes
+    Info: Processing ended: Thu Mar 11 16:26:50 2021
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:09
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in C:/Users/LeonB/Documents/VHDPlus/Projects/Hello_World_VHDL/output_files/Hello_World_VHDL.fit.smsg.
+The suppressed messages can be found in C:/Users/LeonB/Documents/GitHub/Webinar/Hello_World_VHDL/output_files/Hello_World_VHDL.fit.smsg.
 
 

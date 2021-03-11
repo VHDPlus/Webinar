@@ -1,10 +1,12 @@
-Main (
+Main
+(
     UART_TX  : OUT STD_LOGIC := '1';
-) {
+)
+{
     TYPE States is (Char_Select, Send, Delay);
     
     Process () {
-        SIGNAL MyString        : STD_LOGIC_VECTOR(103 downto 0) := x"48656c6c6f20576f726c64210a";
+        SIGNAL MyString        : STD_LOGIC_VECTOR(103 downto 0) := s"Hello World!\n";
         
         VARIABLE charCounter   : NATURAL range 0 to (MyString'LENGTH)/8 := (MyString'LENGTH)/8;
         VARIABLE State         : States := Char_Select;
@@ -40,7 +42,7 @@ Main (
     
     SIGNAL UART_TX_Enable     : STD_LOGIC := '0';
     SIGNAL UART_TX_Busy       : STD_LOGIC := '0';
-    SIGNAL UART_TX_Data       : STD_LOGIC_VECTOR (8-1 DOWNTO 0) := (others => '0');
+    SIGNAL UART_TX_Data       : STD_LOGIC_VECTOR (8-1 DOWNTO 0) := A(others => '0');
     NewComponent UART_Interface (
         CLK_Frequency => 12000000,
         Baud_Rate     => 19200,
