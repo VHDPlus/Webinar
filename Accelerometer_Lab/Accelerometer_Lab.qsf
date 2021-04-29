@@ -1,7 +1,7 @@
 #OfficialHardware: MAX1000 | Please do not remove this line!
 set_global_assignment -name FAMILY "MAX 10"
 set_global_assignment -name DEVICE 10M08SAU169C8G
-set_global_assignment -name TOP_LEVEL_ENTITY Hello_World_VHDL
+set_global_assignment -name TOP_LEVEL_ENTITY Accelerometer_Lab
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
@@ -19,12 +19,19 @@ set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
 set_global_assignment -name NUM_PARALLEL_PROCESSORS 8
 set_global_assignment -name INTERNAL_FLASH_UPDATE_MODE "SINGLE IMAGE"
+set_global_assignment -name VHDL_FILE Generated/Accelerometer_Lab.vhd
+set_global_assignment -name VHDL_FILE Generated/BinaryToBcd.vhd
+set_global_assignment -name VHDL_FILE Generated/BinaryToBcdDigit.vhd
+set_global_assignment -name VHDL_FILE Generated/LIS3DH_Interface.vhd
+set_global_assignment -name VHDL_FILE Generated/SPI_Master.vhd
+set_global_assignment -name VHDL_FILE Generated/Serial_Plotter_Interface.vhd
+set_global_assignment -name VHDL_FILE Generated/Single_Port_RAM.vhd
+set_global_assignment -name VHDL_FILE Generated/Single_Port_ROM.vhd
+set_global_assignment -name VHDL_FILE Generated/String_Type_Package.vhd
 set_global_assignment -name VHDL_FILE Generated/UART_Interface.vhd
-set_global_assignment -name VHDL_FILE Hello_World_VHDL.vhd
 set_location_assignment PIN_H6 -to CLK
-set_location_assignment PIN_B4 -to UART_TX
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
+set_location_assignment PIN_J7 -to LIS3DH_SDI
+set_location_assignment PIN_K5 -to LIS3DH_SDO
+set_location_assignment PIN_J6 -to LIS3DH_SPC
+set_location_assignment PIN_L5 -to LIS3DH_CS
+set_location_assignment PIN_B4 -to Plotter_TX

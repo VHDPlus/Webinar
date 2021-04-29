@@ -1,0 +1,105 @@
+Main
+(
+
+    Plotter_TX : OUT STD_LOGIC; --UART output for plotter
+
+    LIS3DH_SDI : OUT STD_LOGIC; --Accelerometer data in
+    LIS3DH_SDO : IN  STD_LOGIC; --Accelerometer data out
+    LIS3DH_SPC : OUT STD_LOGIC; --Accelerometer clock
+    LIS3DH_CS  : OUT STD_LOGIC; --Accelerometer chip select
+    
+
+)
+{
+
+
+--GENERATED SIGNALS---------------------------------------------------------------------------------------------
+
+    --MAX1000 Accelerometer----------------------------------------------------------------------------------------
+
+    CONSTANT Plotter_Baud_Rate   : NATURAL := 9600;
+    CONSTANT Plotter_UnitChars   : NATURAL := 1;  --Set to max. number of chars of the unit and set the unit like this: s"m/s"
+    CONSTANT Plotter_NameChars   : NATURAL := 15; --Set to max. number of chars of the graph name
+    
+
+--GENERATED CODE------------------------------------------------------------------------------------------------
+
+    --MAX1000 Accelerometer----------------------------------------------------------------------------------------
+
+
+    Process ()
+    {
+        Thread
+        {
+            Plotter_Value      <= LIS3DH_X_Val;
+            Plotter_Graph_Name <= s"Accelerometer X";
+            Plotter_Send       <= '1';
+            While(Plotter_Busy = '0'){}
+            Plotter_Send       <= '0';
+            While(Plotter_Busy = '1'){}
+            
+            Plotter_Value      <= LIS3DH_Y_Val;
+            Plotter_Graph_Name <= s"Accelerometer Y";
+            Plotter_Send       <= '1';
+            While(Plotter_Busy = '0'){}
+            Plotter_Send       <= '0';
+            While(Plotter_Busy = '1'){}
+            
+            Plotter_Value      <= LIS3DH_Z_Val;
+            Plotter_Graph_Name <= s"Accelerometer Z";
+            Plotter_Send       <= '1';
+            While(Plotter_Busy = '0'){}
+            Plotter_Send       <= '0';
+            While(Plotter_Busy = '1'){}
+            
+            Wait(100ms);
+        }
+    }
+    
+
+--GENERATED COMPONENTS------------------------------------------------------------------------------------------
+
+    --MAX1000 Accelerometer----------------------------------------------------------------------------------------
+
+
+    SIGNAL LIS3DH_X_Val           : INTEGER   range -2048 to 2047 := 0;
+    SIGNAL LIS3DH_Y_Val           : INTEGER   range -2048 to 2047 := 0;
+    SIGNAL LIS3DH_Z_Val           : INTEGER   range -2048 to 2047 := 0;
+    SIGNAL LIS3DH_ADC_Val         : INTEGER   range -512 to 511 := 0;
+    NewComponent LIS3DH_Interface
+    (
+        Data_Rate       => 7,
+        Use_ADC         => '1',
+        Use_Temp        => '0',
+
+        X_Val           => LIS3DH_X_Val,
+        Y_Val           => LIS3DH_Y_Val,
+        Z_Val           => LIS3DH_Z_Val,
+        ADC_Val         => LIS3DH_ADC_Val,
+        SDI             => LIS3DH_SDI,
+        SDO             => LIS3DH_SDO,
+        SPC             => LIS3DH_SPC,
+        CS              => LIS3DH_CS,
+    );
+    
+    SIGNAL Plotter_Value         : INTEGER := 0;
+    SIGNAL Plotter_Graph_Name    : STD_LOGIC_VECTOR (Plotter_NameChars*8-1 downto 0) := (others => '0');
+    SIGNAL Plotter_ValueUnit     : STD_LOGIC_VECTOR (Plotter_UnitChars*8-1 downto 0) := (others => '0');
+    SIGNAL Plotter_Send          : STD_LOGIC := '0';
+    SIGNAL Plotter_Busy          : STD_LOGIC := '0';
+    NewComponent Serial_Plotter_Interface
+    (
+        UseTime       => false,
+        NameChars     => Plotter_NameChars,
+        UnitChars     => Plotter_UnitChars,
+        Baud_Rate     => Plotter_Baud_Rate,
+
+        Value         => Plotter_Value,
+        Graph_Name    => Plotter_Graph_Name,
+        ValueUnit     => Plotter_ValueUnit,
+        Send          => Plotter_Send,
+        Busy          => Plotter_Busy,
+        TX            => Plotter_TX,
+    );
+    
+}

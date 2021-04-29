@@ -1,0 +1,65 @@
+Component VHDL_Lab_Sim()
+{
+    SIGNAL finished : STD_LOGIC:= '0';
+
+    Process Sim_finished()
+    {
+        wait for 10000 us;
+        finished <= '1';
+        wait;
+    }
+
+    NewComponent VHDL_Lab
+    (
+        CLK => CLK,
+        LED => LED,
+        RX => RX,
+        TX => TX,
+    );
+
+    SIGNAL CLK : std_logic ;
+    SIGNAL LED : std_logic  := '0';
+    SIGNAL RX : STD_LOGIC  := '1';
+    SIGNAL TX : STD_LOGIC  := '1';
+
+
+    Process Sim_CLK()
+    {
+        While(finished /= '1')
+        {
+            CLK <= '1';
+            wait for 83333 ps;
+            CLK <= '0';
+            wait for 83333 ps;
+        }
+        wait;
+    }
+    
+    Process ()
+    {
+        wait until rising_edge(clk);
+        Thread
+        {
+            NewFunction write (s"6", UART_Interface_TX_Data, UART_Interface_TX_Busy, UART_Interface_TX_Enable);
+            wait;
+        }
+    }
+    
+    SIGNAL UART_Interface_TX_Enable     : STD_LOGIC := '0';
+    SIGNAL UART_Interface_TX_Busy       : STD_LOGIC := '0';
+    SIGNAL UART_Interface_TX_Data       : STD_LOGIC_VECTOR (8-1 DOWNTO 0) := (others => '0');
+    NewComponent UART_Interface
+    (
+        CLK_Frequency => 12000000,
+        Baud_Rate     => 19200,
+        OS_Rate       => 16,
+        D_Width       => 8,
+        Parity        => 0,
+        Parity_EO     => '0',
+
+        TX            => RX,
+        TX_Enable     =>UART_Interface_TX_Enable,
+        TX_Busy       =>UART_Interface_TX_Busy,
+        TX_Data       =>UART_Interface_TX_Data,
+    );
+}

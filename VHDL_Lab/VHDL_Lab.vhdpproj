@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<ProjectRoot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Header>VHDL_Lab</Header>
+  <Items xsi:type="ProjectFolder">
+    <Header>Generated</Header>
+    <Items xsi:type="ProjectFileVHDL">
+      <Header>UART_Interface.vhd</Header>
+    </Items>
+  </Items>
+  <Items xsi:type="ProjectFolder">
+    <Header>Libraries</Header>
+    <Items xsi:type="ProjectFileVHDL">
+      <Header>Random_Number.vhd</Header>
+    </Items>
+    <Items xsi:type="ProjectFileVHDP">
+      <Header>UART.vhdp</Header>
+    </Items>
+  </Items>
+  <Items xsi:type="ProjectFileVHDL">
+    <Header>VHDL_Lab.vhd</Header>
+  </Items>
+  <Items xsi:type="ProjectFileGHDP">
+    <Header>VHDL_Lab_Sim.ghdp</Header>
+  </Items>
+  <Items xsi:type="ProjectFileVHDL">
+    <Header>VHDL_Lab_Sim.vhd</Header>
+  </Items>
+  <CruviHSExtensions>
+    <string xsi:nil="true" />
+  </CruviHSExtensions>
+  <CruviLSExtensions>
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+    <string xsi:nil="true" />
+  </CruviLSExtensions>
+  <IOVoltage>0</IOVoltage>
+  <HardwareStartPathRelative>VHDL_Lab.vhd</HardwareStartPathRelative>
+  <UseShield>false</UseShield>
+</ProjectRoot>
